@@ -1,0 +1,28 @@
+{%extends 'Main\base.html'%}
+{%block head%}
+    <div class="container">
+        <h2><b>Payment Section</b></h2>
+        <h3><b>Item CART:</b>{{a.item.cart_Name}}</h3>
+        <h3><b>Item:</b>{{a.Item_Name}}</h3>
+        <h3><b>Item Amount:</b>{{a.price}}</h3>
+        <h3><b>Item Description:</b>{{a.description}}</h3>
+        <h3><b>Item Image:</b><img src="{{a.Img.url}}" width="400" /></h3>
+
+   
+<form method="POST">
+    {%csrf_token%}
+    {{commentForm.as_p}}
+    <button type="submit">Comment</button>
+</form>
+{%if comments%}
+<h3><b>comments</b></h3>
+    {% for x in comments %}
+    <h4>user:{{x.user_comm.username}}</h4>
+    <h5><b>{{x.commentsre}}</b></h5>
+    {%endfor%}
+{%else%}
+        <h4>Be the First Person to write a review</h4>
+</div>
+{%endif%}
+
+{%endblock%}

@@ -1,0 +1,22 @@
+{%extends 'Main\base.html'%}
+{%block sidebar%}
+{%include 'Main\fixedsidebar.html'%}
+{%endblock%}
+{%block head%}
+{%for x in cartname%}
+    <button type="button">
+        <div class="column">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="{{x.img.url}}" alt="..." />
+                    <div class="caption">
+                        <h3>{{x.name}}</h3>
+                        <p><b>{{x.description}}</b></p>
+                        <p><a href="" class="btn btn-primary" role="button">Buy</a> <a href="" class="btn btn-default" role="button">Add to cart</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </button>
+{%endfor%}
+{%endblock%}

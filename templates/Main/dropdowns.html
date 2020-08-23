@@ -1,0 +1,16 @@
+{%for x in category%}
+<!--  For the purpose of side bar in the side barDefault dropright button -->
+<div class="btn-group dropright">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{x.cart_name}}
+    </button>
+    <div class=" dropdown-menu">
+        {%for y in x.subcategory1_set.all%}
+            {%for  z in y.subcategory2_set.all %}
+            <a href="{%url 'item' z.subcat_name%}">{{z.subcat_name}}</a>
+            {%endfor%}
+        {%endfor%}
+    </div>
+        
+</div>
+{%endfor%}
